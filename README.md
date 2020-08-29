@@ -1,4 +1,4 @@
-# Ruby Cheatsheet
+# Ruby Cheat-sheet
 
 ## Printing to screen
 ```ruby
