@@ -1,6 +1,6 @@
 # Ruby Cheat-sheet
 
-## Printing to screen
+## Printing
 ```ruby
 print "prints something"
 puts "prints something with new line"
