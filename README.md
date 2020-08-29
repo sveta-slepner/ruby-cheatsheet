@@ -1,5 +1,65 @@
 # Ruby Cheat-sheet
 
+ - [Printing](#printing)
+  - [Comments](#comments)
+  - [Receiving input from the user:](#receiving-input-from-the-user)
+  - [Variables](#variables)
+  - [Conditional Assignment](#conditional-assignment)
+  - [String functions](#string-functions)
+  - [Symbol](#symbol)
+  - [.respond_to?](#respond_to)
+  - [Conditions](#conditions)
+    - [If statement](#if-statement)
+    - [Unless](#unless)
+    - [Shortened](#shortened)
+    - [Ternary](#ternary)
+    - [Switch case](#switch-case)
+  - [Concatenation operator](#concatenation-operator)
+  - [Iterations](#iterations)
+    - [While](#while)
+    - [Until](#until)
+    - [For](#for)
+    - [Loop do](#loop-do)
+    - [Breaking out of loops or loop steps](#breaking-out-of-loops-or-loop-steps)
+    - [.each Iterator](#each-iterator)
+    - [.times Iterator](#times-iterator)
+    - [upto/downto Iterator](#uptodownto-iterator)
+  - [Block syntax](#block-syntax)
+  - [Hash](#hash)
+  - [sort](#sort)
+  - [Ruby Combined Comparison Operator <=>](#ruby-combined-comparison-operator-)
+  - [sort (custom)](#sort-custom)
+  - [.sort_by](#sort_by)
+  - [.select (filters a data structure)](#select-filters-a-data-structure)
+  - [.collect/.map](#collectmap)
+  - [Conversion](#conversion)
+  - [Methods](#methods)
+  - [yield](#yield)
+  - [yield with parameters](#yield-with-parameters)
+  - [Proc](#proc)
+    - [.call](#call)
+    - [Symbols as procs](#symbols-as-procs)
+  - [Lambda](#lambda)
+  - [Lambdas vs. Procs](#lambdas-vs-procs)
+- [Object oriented](#object-oriented)
+  - [Class](#class)
+  - [Scoping:](#scoping)
+    - [Class variable](#class-variable)
+    - [Public/Private methods](#publicprivate-methods)
+    - [Reading and writing to instance variables (attr_reader/attr_writer)](#reading-and-writing-to-instance-variables-attr_readerattr_writer)
+    - [attr_accessor](#attr_accessor)
+  - [Inheritance](#inheritance)
+    - [Overiding a method](#overiding-a-method)
+    - [super - adding to a method, instead of overriding](#super---adding-to-a-method-instead-of-overriding)
+  - [Module](#module)
+  - [Ruby namespace](#ruby-namespace)
+  - [require](#require)
+  - [include](#include)
+  - [Mixins - Modules + Classes](#mixins---modules--classes)
+    - [include](#include-1)
+    - [extend](#extend)
+
+
 ## Printing
 ```ruby
 print "prints something"
@@ -91,7 +151,8 @@ age = 26
 age.respond_to?(:next) # will return true since "next" can work on integers
 ```
 
-## If statement
+## Conditions
+### If statement
 ```ruby
 if 4 > 2
   print "hey"
@@ -107,7 +168,7 @@ else
 end
 ```
 
-## Unless
+### Unless
 Sometimes you want to use control flow to check if something is false, rather than if it’s true. <br/>You could reverse your if/else, but Ruby will do you one better: it will let you use an unless statement.
 ```ruby
 hungry = false
@@ -118,7 +179,7 @@ else
 end
 ```
 
-## Shortened
+### Shortened
 ```ruby
 ruby_is_eloquent = true
 ruby_is_ugly = false
@@ -127,12 +188,12 @@ puts "Ruby is eloquent!" if ruby_is_eloquent
 puts "Ruby's not ugly!" unless ruby_is_ugly
 ```
 
-## Ternary
+### Ternary
 ```ruby
 puts 2 > 1 ? "True" : "False"
 ```
 
-## Switch case
+### Switch case
 ```ruby
 case choice
  when 'add'
@@ -161,8 +222,8 @@ caption = "Some text and "
 caption << "even more text!"
 # Same as caption += "even more text!"
 ```
-
-## While
+## Iterations
+### While
 ```ruby
 counter = 1
 while counter < 11
@@ -171,7 +232,7 @@ while counter < 11
 end
 ```
 
-## Until
+### Until
 ```ruby
 counter = 1
 until counter == 10
@@ -180,7 +241,7 @@ until counter == 10
 end
 ```
 
-## For
+### For
 ```ruby
 for num in 1...10
   puts num
@@ -193,7 +254,7 @@ end
 # Two dots -> Will print 1 to 10
 ```
 
-## Loop do
+### Loop do
 ```ruby
 i = 20
 loop do
@@ -203,12 +264,34 @@ loop do
 end
 ```
 
-## Breaking out of loops or loop steps
+### Breaking out of loops or loop steps
 ```ruby
 # skip a step:
 next if
 # Break from the loop
 break if
+```
+
+### .each Iterator
+```ruby
+array = [1,2,3,4,5]
+ 
+array.each { |x| 
+  x += 10
+  print "#{x}"
+}
+```
+
+### .times Iterator
+Runs a piece of code X times
+```ruby
+10.times { print "Chunky bacon!" }
+```
+
+### upto/downto Iterator
+```ruby
+"L".upto("P") { |letter| print letter } # will print LMNOP
+100.downto(97) { |num| print "#{num}, " } # will print "100, 99, 98, 97, "
 ```
 
 ## Block syntax
@@ -221,28 +304,6 @@ end
 
 [1, 2, 3].each { |num| puts num }
 # ==> Prints 1, 2, 3 on separate lines
-```
-
-## .each Iterator
-```ruby
-array = [1,2,3,4,5]
- 
-array.each { |x| 
-  x += 10
-  print "#{x}"
-}
-```
-
-## .times Iterator
-Runs a piece of code X times
-```ruby
-10.times { print "Chunky bacon!" }
-```
-
-## upto/downto Iterator
-```ruby
-"L".upto("P") { |letter| print letter } # will print LMNOP
-100.downto(97) { |num| print "#{num}, " } # will print "100, 99, 98, 97, "
 ```
 
 ## Hash
